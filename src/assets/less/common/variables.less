@@ -1,0 +1,52 @@
+// Color scheme
+// ------------
+@white: #fff;
+@colorPrimary: #98012e;
+
+@black: #222;
+@black-light: #5c5c5c;
+@grey-dark: #505050;
+@grey-light: #dddddd;
+
+@bg-light: #F7F7F7;
+@borderColor: #cfcfcf;
+
+
+// Text
+// ----
+@textColor: @grey-dark;
+@textSizeDefault: 16px;
+@fontFamily: "Roboto", sans-serif;
+@fontSubTitle: "Roboto Slab";
+@fontTitle: "Roboto Condensed";
+@fontScript: "VLHillda";
+@fontMapa: "Glass Antiqua";
+@fontSignature: "Mr De Haviland", cursive;
+@fontIcon: "mapa-cafe";
+
+// Others
+// ------
+@animateSpeed: 200ms;
+@mainSpacing: 10px;
+
+// Override Bootstraps
+// -------------------
+@grid-gutter-width: 30px;
+@container-large-desktop:    (1170px + @grid-gutter-width);
+
+/* === Responsive config === */
+// Tiny screen / phone
+// Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
+@screen-tn: 480px;
+@screen-tn-max: (@screen-tn - 1);
+
+/* < 400  */ @ltSmMobile: ~"only screen and (max-width: 400px)";
+/* < 479  */ @ltMobile: ~"only screen and (max-width: @{screen-tn-max})";
+/* >= 480  */ @gteMobile: ~"only screen and (min-width: @{screen-xs-min})";
+/* < 767  */ @ltMoblet: ~"only screen and (max-width: @{screen-xs-max})";
+/* >= 768  */ @gteMoblet: ~"only screen and (min-width: @{screen-sm-min})";
+/* < 991  */ @ltTablet: ~"only screen and (max-width: @{screen-sm-max})";
+/* >= 992  */ @gteTablet: ~"only screen and (min-width: @{screen-md-min})";
+/* < 1280 */ @ltDesktop: ~"only screen and (max-width: @{screen-md-max})";
+/* >= 1281 */ @gteDesktop: ~"only screen and (min-width: @{screen-lg-min})";
+/* Retina */ @retina: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";

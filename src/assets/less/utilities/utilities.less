@@ -1,0 +1,234 @@
+// Spacing
+// ------
+.nm {
+  margin: 0;
+}
+.nvm {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+// auto generate pt, pb, mt, mb (1x, 2x,...)
+.generate-spacing(10);
+
+.generate-spacing(@n, @i: 1) when (@i =< @n) {
+  .pt@{i}x {
+    padding-top: @i * @mainSpacing;
+  }
+  .pb@{i}x {
+    padding-bottom: @i * @mainSpacing;
+  }
+  .mt@{i}x {
+    margin-top: @i * @mainSpacing;
+  }
+  .mb@{i}x {
+    margin-bottom: @i * @mainSpacing;
+  }
+  .generate-spacing(@n, (@i + 1));
+}
+//special mt14x for about us
+.mt14x {
+  margin-top: 140px;
+}
+@media @ltTablet {
+  .mt8x {
+    margin-top: 40px;
+  }
+  .script-title {
+    &.mb7x {
+      margin-bottom: 50px;
+    }
+  }
+  .pt8x {
+    padding-top: 40px;
+  }
+  .pb8x {
+    padding-bottom: 40px;
+  }
+  .sm-nm {
+    margin: 0;
+  }
+}
+@media @ltMoblet {
+  .mb6x {
+    margin-bottom: 20px;
+  }
+}
+
+
+// Utilities
+// ---------
+// Background effects
+.overlay {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    .opacity(0.6);
+    .transition(opacity linear .5s);
+  }
+
+  &.light-overlay {
+    &:before {
+      .opacity(0.4);
+    }
+  }
+}
+.full-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &.parallax-pos {
+    background-position: center top;
+  }
+
+  &.parallax-bot {
+    background-position: center bottom;
+  }
+
+  &.parallax-sup {
+    background-attachment: fixed;
+
+    @media @ltDesktop {
+      background-attachment: inherit;
+    }
+  }
+}
+.bg-float {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media @ltDesktop {
+    height: auto;
+  }
+
+  &.left {
+    background-position: left top;
+  }
+  &.right {
+    background-position: right top;
+  }
+}
+.bg-primary {
+  background-color: @colorPrimary;
+}
+.bg-dark {
+  background-color: @black;
+}
+.bg-light {
+  background-color: @bg-light;
+}
+.bg-white {
+  background-color: @white;
+}
+.bg-faul {
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: right 70%;
+    .img-retina('../img/bg/kebab.png', '../img/bg/kebab@2x.png', 302px, 378px);
+  }
+}
+
+// Position
+.v-middle {
+  display: block;
+  position: absolute;
+  top: 50%;
+  .translate(0, -50%);
+}
+.h-middle {
+  display: block;
+  position: absolute;
+  left: 50%;
+  .translate(-50%, 0);
+}
+.vh-middle {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  .translate(-50%, -50%);
+}
+.full-width {
+  width: 100%;
+}
+
+// Square
+.rectangle-maker(@ratio) {
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: (@ratio * 100%);
+  }
+
+  .rec-fill {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.oe-square {
+  .rectangle-maker(1);
+}
+
+// delay level
+.generate-delay(5);
+
+.generate-delay(@n, @i: 1) when (@i =< @n) {
+  .delay-@{i} {
+    .animation-delay(@i * 300ms);
+  }
+  .generate-delay(@n, (@i + 1));
+}
+
+// Animation
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "gulp-html-blank",
+  "version": "0.0.1",
+  "description": "gulp html blank",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11",
+    "bootstrap": "3.*",
+    "html5shiv": "*",
+    "respond": "*",
+    "slick.js": "~1.6.0",
+    "animate.css": "*",
+    "stellar.js": "~0.6.2",
+    "validate": "0.10.0"
+  }
+}
